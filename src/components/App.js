@@ -11,7 +11,7 @@ import Commands from '../pages/Commands'
 import NotFound from '../pages/NotFound'
 import { Hidden } from '@material-ui/core'
 
-const drawerWidth = 240
+import { DRAWER_WIDTH as drawerWidth } from '../config'
 
 const styles = theme => ({
   content: {

@@ -12,7 +12,8 @@ import Link from '@material-ui/core/Link'
 
 import { withStyles } from '@material-ui/core/styles'
 
-const drawerWidth = 240
+import { DRAWER_WIDTH as drawerWidth } from '../config'
+
 const styles = theme => ({
   toolbar: {
     ...theme.mixins.toolbar,

@@ -7,7 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 import LightbulbFull from '@material-ui/docs/svgIcons/LightbulbFull'
 import LightbulbOutline from '@material-ui/docs/svgIcons/LightbulbOutline'
 
@@ -15,7 +14,8 @@ import { setPaletteType } from '../actions/themeActions'
 
 import DrawerComponent from './Drawer'
 
-const drawerWidth = 240
+import { DRAWER_WIDTH as drawerWidth } from '../config'
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -46,16 +46,8 @@ class NavBar extends Component {
         <DrawerComponent />
         <AppBar className={ classes.appBar } position="fixed">
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              edge="start"
-              className={classes.menuButton}
-              >
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" className={classes.title}>
-              { page }
+              { page[0].toUpperCase() + page.slice(1, page.length) }
             </Typography>
             <IconButton edge="end" onClick={ this.changeTheme.bind(this) } className={ classes.settingsButton } color="inherit" aria-label="Settings">
               { theme.palette.type === 'light' ? <LightbulbFull /> : <LightbulbOutline /> }
