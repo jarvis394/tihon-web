@@ -1,0 +1,17 @@
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from 'react-redux'
+
+import Layout from './components/Layout'
+
+import store from './store'
+
+import "./styles/index.css"
+import "./styles/materialize.css"
+
+ReactDOM.render(
+  <Provider store={ store }>
+    <Layout />
+  </Provider>,
+  document.getElementById("root")
+)
