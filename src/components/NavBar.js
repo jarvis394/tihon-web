@@ -20,9 +20,6 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
   },
@@ -30,6 +27,9 @@ const styles = theme => ({
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
   },
+  button: {
+    marginRight: theme.spacing(2),
+  }
 })
 
 class NavBar extends Component {
@@ -46,13 +46,24 @@ class NavBar extends Component {
         <DrawerComponent />
         <AppBar className={ classes.appBar } position="fixed">
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className={ classes.title }>
               { page[0].toUpperCase() + page.slice(1, page.length) }
             </Typography>
-            <IconButton edge="end" onClick={ this.changeTheme.bind(this) } className={ classes.settingsButton } color="inherit" aria-label="Settings">
+            <IconButton 
+              edge="end" 
+              onClick={ this.changeTheme.bind(this) } 
+              className={ classes.button } 
+              color="inherit" 
+              aria-label="Change theme"
+            >
               { theme.palette.type === 'light' ? <LightbulbFull /> : <LightbulbOutline /> }
             </IconButton>
-            <Button color="inherit">Login</Button>
+            <Button 
+              className={ classes.button } 
+              color="inherit"
+            >
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </div>

@@ -15,9 +15,9 @@ import { DRAWER_WIDTH as drawerWidth } from '../config'
 
 const styles = theme => ({
   content: {
-    paddingTop: theme.spacing(10),
     [theme.breakpoints.up('md')]: {
-      marginLeft: drawerWidth
+      marginLeft: drawerWidth,
+      paddingTop: theme.spacing(10),
     }
   },
 })
