@@ -10,6 +10,7 @@ export default function reducer(state = theme, action) {
   switch (action.type) {
     case 'THEME_PALETTE_TYPE_SET': {
       state.palette.type = action.payload
+      localStorage.setItem('theme', action.payload)
       
       return {
         ...state
