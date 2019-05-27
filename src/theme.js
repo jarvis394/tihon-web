@@ -1,14 +1,8 @@
 import { blue, pink } from '@material-ui/core/colors'
 
-let type = localStorage.getItem('theme')
-if (!type) {
-  localStorage.setItem('theme', 'light')
-  type = 'light'
-}
-
 const theme = {
   palette: {
-    type: type,
+    type: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light',
     primary:{
       main: blue.A400,
     },

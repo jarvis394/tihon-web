@@ -1,5 +1,12 @@
 import theme from '../theme'
 
+let type = localStorage.getItem('theme')
+
+if (!type) {
+  type = 'light'
+  localStorage.setItem('theme', type)
+}
+
 /**
  * Theme reducer
  * 
