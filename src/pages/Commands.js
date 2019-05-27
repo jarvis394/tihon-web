@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { withStyles } from '@material-ui/core/styles'
-import { Container, Grid, CircularProgress } from '@material-ui/core'
+import { Container, Grid, CircularProgress, Typography } from '@material-ui/core'
 
 import Command from '../components/Command'
 
 import { fetchCommands } from '../actions/commandsActions'
 
 const styles = theme => ({
-  content: {
-    maxWidth: '1024px'
+  grid: {
+    marginTop: theme.spacing(2),
+    maxWidth: '1024px',
+    marginBottom: theme.spacing(10)
   },
   item: {
     width: '100%'
@@ -20,7 +22,7 @@ const styles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: 'calc(100vh - 168px)'
-  }
+  },
 })
 
 class Commands extends Component {
@@ -34,8 +36,10 @@ class Commands extends Component {
     
     if (commands.length !== 0) {
     return (
-      <Container className={ classes.content }>
-        <Grid container spacing={ 2 } className={ classes.content }>
+      <Container>
+        <Typography paragraph>Здесь представлены все доступные команды у бота</Typography>
+        
+        <Grid container spacing={ 2 } className={ classes.grid }>
           
           { commands && commands.map((c, i) => (
               <Grid className={ classes.item } key={ i } item sm={ 12 } md={ 6 }>
@@ -47,9 +51,11 @@ class Commands extends Component {
         </Grid>
       </Container>
     )}
-    else return (<div className={ classes.progress }>
-      <CircularProgress /></div>
-      )
+    else return (
+      <div className={ classes.progress }>
+        <CircularProgress />
+      </div>
+    )
   }
 }
 

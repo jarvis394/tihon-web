@@ -1,0 +1,30 @@
+{
+  "ru": {
+    "home": {
+      "Title": "Дед Тихон",
+      "Subtitle": "Бот, который шлёт непонятную хрень в беседу, да ещё и рандомно. С села мужик, что сказать.",
+      "UsageTitle": "Использование",
+      "UsageText1": "Чтобы начать пользоваться ботом,",
+      "UsageText2": "Он сам в течение часа примет запрос, и после этого вы сможете пригласить его в беседу или сразу начать использовать команды в личных сообщениях.",
+      "UsageTextLink": "добавте его в друзья",
+      "CommandsTitle": "Команды",
+      "CommandsText": "Смотри на",
+      "CommandsTextLink": "отдельной странице",
+      "FAQTitle": "FAQ",
+      "FAQText1": "",
+      "AboutTitle": "Об авторе",
+      "AboutText1": "Я самъ в ВК:",
+      "AboutText1Link": "vk/tarnatovski",
+      "AboutText2": "Группа бота в ВК:",
+      "AboutText2Link": "vk/tihon_ded",
+      "AboutText3": "Гитхаб репозиторий:",
+      "AboutText3Link": "git/ded_tihon"
+    },
+    "labels": {
+      "HOME": "Главная",
+      "COMMANDS": "Команды",
+      "PROFILE": "Профиль",
+      "SETTINGS": "Настройки"
+    }
+  }
+}

@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
+import { t } from 'i18next'
+
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
-import HomeIcon from '@material-ui/icons/Home'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import ListIco from '@material-ui/icons/List'
 import Typography from '@material-ui/core/Typography'
-import Link from '@material-ui/core/Link'
+import { Link } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import { DRAWER_WIDTH as drawerWidth } from '../config'
+import { DRAWER_WIDTH as drawerWidth, routes } from '../config'
 
 const styles = theme => ({
   toolbar: {
@@ -43,9 +43,16 @@ const styles = theme => ({
   }
 })
 
-function ListItemLink(props) {
+const ListItemLink = (props) => {
+  const { path, name, icon } = props.item
+  
   return (
-    <ListItem button disableRipple component="a" {...props} />
+    <ListItem button component={ Link } to={ '/' + path } >
+      <ListItemIcon>
+        { icon }
+      </ListItemIcon>
+      <ListItemText>{ t('labels:' + name.toUpperCase()) }</ListItemText>
+    </ListItem>
   )
 }
 
@@ -64,7 +71,7 @@ class DrawerComponent extends Component {
       >
         <div className={ classes.toolbarContainer }>
           <div className={ classes.toolbar }>
-            <Link className={ classes.title } href="/" variant="h6" color="inherit">
+            <Link className={ classes.title } to="/" color="inherit">
               tihon
             </Link>
             <Typography color="textSecondary" variant="caption">
@@ -75,21 +82,10 @@ class DrawerComponent extends Component {
         <Divider />
         <List>
 
-          { /* Home */}
-          <ListItemLink href='/' key='home'>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText>Главная</ListItemText>
-          </ListItemLink>
-
-          { /* Commands */}
-          <ListItemLink href='/commands' key='commands'>
-            <ListItemIcon>
-              <ListIco />
-            </ListItemIcon>
-            <ListItemText>Команды</ListItemText>
-          </ListItemLink>
+          { routes.map(r => (
+              <ListItemLink item={ r } key={ r.name } />
+            ))
+          }
 
         </List>
       </Drawer>

@@ -1,0 +1,30 @@
+{
+  "en": {
+    "home": {
+      "Title": "Grandpa Tihon",
+      "Subtitle": "A bot that sends incomprehensible crap into a conversation, and even randomly. From the village, what to say.",
+      "UsageTitle": "Usage",
+      "UsageText1": "To start using this bot,",
+      "UsageText2": "He will accept the request within an hour, and after that you will be able to invite him into the conversation or immediately start using the commands in personal messages.",
+      "UsageTextLink": "add him as a friend",
+      "CommandsTitle": "Commands",
+      "CommandsText": "See at",
+      "CommandsTextLink": "separate page",
+      "FAQTitle": "FAQ",
+      "FAQText1": "",
+      "AboutTitle": "About",
+      "AboutText1": "Me in VK:",
+      "AboutText1Link": "vk/tarnatovski",
+      "AboutText2": "Bot's community group in VK:",
+      "AboutText2Link": "vk/tihon_ded",
+      "AboutText3": "GitHub repository:",
+      "AboutText3Link": "git/ded_tihon"
+    },
+    "labels": {
+      "HOME": "Home",
+      "COMMANDS": "Commands",
+      "PROFILE": "Profile",
+      "SETTINGS": "Settings"
+    }
+  }
+}
