@@ -17,15 +17,9 @@ const styles = theme => ({
   },
 })
 
-const BottomNavLink = props => {
-  const { name, icon } = props.item
-  
-  return <BottomNavigationAction label={ t('labels' + name.toUpperCase()) } value={ name } icon={ icon } />
-}
-
 class BottomNav extends Component {
   handleChange(event, newValue) {
-    this.props.history.push('/' + routes[newValue].path)
+    this.props.history.push('/' + routes.find(e => e.name === newValue).path)
   }
 
   render() {
@@ -35,8 +29,8 @@ class BottomNav extends Component {
       <Paper elevation={ 2 } className={ classes.root }>
         <BottomNavigation value={ page } onChange={ this.handleChange.bind(this) }>
           
-          { routes.map(r => (
-              <BottomNavLink item={ r } key={ r.name } />
+          { routes.map((r, i) => (
+              <BottomNavigationAction label={ t('labels:' + r.name.toUpperCase()) } icon={ r.icon } value={ r.name } key={ r.name } />
             ))
           }
           

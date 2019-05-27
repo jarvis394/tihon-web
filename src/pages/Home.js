@@ -19,7 +19,8 @@ const styles = theme => ({
     width: '100% !important'
   },
   divider: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(3)
   },
   group: {
     marginTop: theme.spacing(4)
@@ -40,8 +41,9 @@ class Home extends Component {
     const Group = props => {
       return (
         <div className={ classes.group } key={ props.key }>
-          <Typography variant="h4">{ props.children }</Typography>
+          <Typography variant="h4">{ props.title }</Typography>
           <Divider className={ classes.divider } />
+          { props.children }
         </div>
      )
    }
@@ -57,9 +59,21 @@ class Home extends Component {
         </div>
         
         <div className={ classes.content }>
-          <Group>{ t('home:UsageTitle') }</Group>
-          
-          <Typography className={ classes.pos } paragraph>{ t('home:UsageText1') } <LinkMUI href="https://vk.com/tihon_bot">{ t('home:UsageTextLink') }</LinkMUI>. { t('home:UsageText2') }</Typography>
+          <Group title={ t('home:UsageTitle') }>
+            <Typography className={ classes.pos } paragraph>
+              { t('home:UsageText1') }&nbsp;
+              <LinkMUI href="https://vk.com/tihon_bot">
+                { t('home:UsageTextLink') }
+              </LinkMUI>.&nbsp;
+              { t('home:UsageText2') }
+            </Typography>
+          </Group>
+
+          <Group title={ t('home:FAQTitle') }>
+            <Typography className={ classes.pos } paragraph>
+              { t('home:FAQText1') }
+            </Typography>
+          </Group>
         </div>
       </Container>
     )
