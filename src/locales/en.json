@@ -11,20 +11,51 @@
       "CommandsText": "See at",
       "CommandsTextLink": "separate page",
       "FAQTitle": "FAQ",
-      "FAQText1": "",
+      "FAQ1": {
+        "title": "What is this Tikhon Russkov?",
+        "text": "Tikhon is a hero from the cartoon \"Three Heroes \", an old grandfather and just a crazy Christian."
+      },
+      "FAQ2": {
+        "title": "How to start? What does a bot do?",
+        "text": "I (the developer) gave Tihon a more humane look and therefore the bot starts whenever he wants. Have respect for elders! A list of commands can be viewed on the site."
+      },
+      "FAQ3": {
+        "title": "I do not respect Tikhon. Where can I fill his snout?",
+        "text": "You will talk with him before God, Judas."
+      },
       "AboutTitle": "About",
-      "AboutText1": "Me in VK:",
-      "AboutText1Link": "vk/tarnatovski",
-      "AboutText2": "Bot's community group in VK:",
-      "AboutText2Link": "vk/tihon_ded",
-      "AboutText3": "GitHub repository:",
-      "AboutText3Link": "git/ded_tihon"
+      "About1": {
+        "text": "Me in VK:",
+        "link": "https://vk.com/tarnatovski",
+        "linkText": "vk/tarnatovski"
+      },
+      "About2": {
+        "text": "Bot's group in VK:",
+        "link": "https://vk.com/tihon_ded",
+        "linkText": "vk/tihon_ded"
+      },
+      "About3": {
+        "text": "GitHub repository:",
+        "link": "https://github.com/jarvis394/ded_tihon",
+        "linkText": "git/ded_tihon"
+      }
+    },
+    "settings": {
+      "Theme": {
+        "title": "Turn on dark theme",
+        "light": "Light theme is on now",
+        "dark": "Dark theme is on now"
+      },
+      "Language": {
+        "title": "Change language"
+      }
     },
     "labels": {
       "HOME": "Home",
       "COMMANDS": "Commands",
       "PROFILE": "Profile",
-      "SETTINGS": "Settings"
+      "SETTINGS": "Settings",
+      "GENERAL": "General"
     }
   }
 }

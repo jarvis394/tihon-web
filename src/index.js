@@ -7,7 +7,6 @@ import Layout from './components/Layout'
 import store from './store'
 
 import "./styles/index.css"
-import "./styles/materialize.css"
 
 ReactDOM.render(
   <Provider store={ store }>

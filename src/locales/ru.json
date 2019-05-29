@@ -40,11 +40,22 @@
         "linkText": "git/ded_tihon"
       }
     },
+    "settings": {
+      "Theme": {
+        "title": "Включить тёмную тему",
+        "light": "Сейчас включена светлая тема",
+        "dark": "Сейчас включена тёмная тема"
+      },
+      "Language": {
+        "title": "Сменить язык"
+      }
+    },
     "labels": {
       "HOME": "Главная",
       "COMMANDS": "Команды",
       "PROFILE": "Профиль",
-      "SETTINGS": "Настройки"
+      "SETTINGS": "Настройки",
+      "GENERAL": "Основные"
     }
   }
 }
