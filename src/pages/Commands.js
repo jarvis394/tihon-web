@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { t } from 'i18next'
 
 import { withStyles } from '@material-ui/core/styles'
-import { Container, Grid, CircularProgress, Typography } from '@material-ui/core'
+import { Fade, Container, Grid, CircularProgress, Typography, Hidden } from '@material-ui/core'
 
 import Command from '../components/Command'
 
@@ -23,6 +24,9 @@ const styles = theme => ({
     alignItems: 'center',
     height: 'calc(100vh - 168px)'
   },
+  pos: {
+    marginTop: theme.spacing(2)
+  }
 })
 
 class Commands extends Component {
@@ -36,20 +40,26 @@ class Commands extends Component {
     
     if (commands.length !== 0) {
     return (
-      <Container>
-        <Typography paragraph>Здесь представлены все доступные команды у бота</Typography>
+      <Fade in={ true }>
+        <Container>
+          <Hidden mdUp>
+            <Typography variant="h4">{ t('labels:COMMANDS') }</Typography>
+          </Hidden>
         
-        <Grid container spacing={ 2 } className={ classes.grid }>
+          <Typography className={ classes.pos } paragraph>Здесь представлены все доступные команды у бота</Typography>
           
-          { commands && commands.map((c, i) => (
-              <Grid className={ classes.item } key={ i } item sm={ 12 } md={ 6 }>
-                <Command command={ c } key={ i } />
-              </Grid>
-            ))
-          }
-          
-        </Grid>
-      </Container>
+          <Grid container spacing={ 2 } className={ classes.grid }>
+            
+            { commands && commands.map((c, i) => (
+                <Grid className={ classes.item } key={ i } item sm={ 12 } md={ 6 }>
+                  <Command command={ c } key={ i } />
+                </Grid>
+              ))
+            }
+            
+          </Grid>
+        </Container>
+      </Fade>
     )}
     else return (
       <div className={ classes.progress }>

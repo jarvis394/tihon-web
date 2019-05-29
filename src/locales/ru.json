@@ -11,14 +11,34 @@
       "CommandsText": "Смотри на",
       "CommandsTextLink": "отдельной странице",
       "FAQTitle": "FAQ",
-      "FAQText1": "",
+      "FAQ1": {
+        "title": "Что это за Тихон Руссков?",
+        "text": "Тихон - герой из мультфильма \"Три Богатыря\", старый дед и просто выживший из ума христианин."
+      },
+      "FAQ2": {
+        "title": "Как начать? Что бот вообще делает?",
+        "text": "Тихону я (разработчик) придал более человечный вид и поэтому начинает бот когда сам захочет. Имейте уважение к старшим! Список команд можно посмотреть на сайте."
+      },
+      "FAQ3": {
+        "title": "Я этого Тихона не уважаю. Где можно объясниться с ним?",
+        "text": "Объяснишься с ним перед Богом, иуда хренов."
+      },
       "AboutTitle": "Об авторе",
-      "AboutText1": "Я самъ в ВК:",
-      "AboutText1Link": "vk/tarnatovski",
-      "AboutText2": "Группа бота в ВК:",
-      "AboutText2Link": "vk/tihon_ded",
-      "AboutText3": "Гитхаб репозиторий:",
-      "AboutText3Link": "git/ded_tihon"
+      "About1": {
+        "text": "Я самъ в ВК:",
+        "link": "https://vk.com/tarnatovski",
+        "linkText": "vk/tarnatovski"
+      },
+      "About2": {
+        "text": "Группа бота в ВК:",
+        "link": "https://vk.com/tihon_ded",
+        "linkText": "vk/tihon_ded"
+      },
+      "About3": {
+        "text": "Гитхаб репозиторий:",
+        "link": "https://github.com/jarvis394/ded_tihon",
+        "linkText": "git/ded_tihon"
+      }
     },
     "labels": {
       "HOME": "Главная",

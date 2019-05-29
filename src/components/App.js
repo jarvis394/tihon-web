@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { Switch, Route } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles'
@@ -7,9 +6,8 @@ import { withStyles } from '@material-ui/core/styles'
 import NavBar from './NavBar'
 import BottomNav from './BottomNav'
 
-import Home from '../pages/Home'
-import Commands from '../pages/Commands'
-import NotFound from '../pages/NotFound'
+import { Home, Commands, Profile, Settings, NotFound } from '../pages'
+
 import { Hidden } from '@material-ui/core'
 
 import { DRAWER_WIDTH as drawerWidth } from '../config'
@@ -54,6 +52,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={ () => <Home handlePage={ this.handlePage } /> } />
             <Route path="/commands" render={ () => <Commands handlePage={ this.handlePage } /> } />
+            <Route path="/settings" render={ () => <Settings handlePage={ this.handlePage } /> } />
+            <Route path="/profile" render={ () => <Profile handlePage={ this.handlePage } /> } />
+            
             <Route exact path="*" render={ () => <NotFound handlePage={ this.handlePage } /> } />
           </Switch>
         </div>
