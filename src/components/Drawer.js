@@ -40,14 +40,17 @@ const styles = theme => ({
     '&:hover': {
       color: theme.palette.primary.main,
     },
+    textDecoration: 'none',
+    transition: '.09s'
   }
 })
 
 const ListItemLink = (props) => {
   const { path, name, icon } = props.item
+  const { selected } = props
   
   return (
-    <ListItem button component={ Link } to={ '/' + path } >
+    <ListItem selected={ selected } button component={ Link } to={ '/' + path } >
       <ListItemIcon>
         { icon }
       </ListItemIcon>
@@ -58,7 +61,7 @@ const ListItemLink = (props) => {
 
 class DrawerComponent extends Component {
   render() {
-    const { classes } = this.props
+    const { classes, page } = this.props
     
     return (
       <Drawer
@@ -83,7 +86,7 @@ class DrawerComponent extends Component {
         <List>
 
           { routes.map(r => (
-              <ListItemLink item={ r } key={ r.name } />
+              <ListItemLink selected={ r.name === page } item={ r } key={ r.name } />
             ))
           }
 

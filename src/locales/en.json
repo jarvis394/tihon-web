@@ -12,7 +12,7 @@
       "CommandsTextLink": "separate page",
       "FAQTitle": "FAQ",
       "FAQ1": {
-        "title": "What is this Tikhon Russkov?",
+        "title": "What is this - Tikhon Russkov?",
         "text": "Tikhon is a hero from the cartoon \"Three Heroes \", an old grandfather and just a crazy Christian."
       },
       "FAQ2": {
@@ -40,6 +40,9 @@
         "linkText": "git/ded_tihon"
       }
     },
+    "commands": {
+      "Text": "Here are all available commands from the bot"
+    },
     "settings": {
       "Theme": {
         "title": "Turn on dark theme",
@@ -48,14 +51,23 @@
       },
       "Language": {
         "title": "Change language"
+      },
+      "Profile": {
+        "title": "Logout",
+        "subtitle": "Log out from profile"
       }
+    },
+    "profile": {
+      "NotLoggedIn": "You have to login to see this page"
     },
     "labels": {
       "HOME": "Home",
       "COMMANDS": "Commands",
       "PROFILE": "Profile",
       "SETTINGS": "Settings",
-      "GENERAL": "General"
+      "GENERAL": "General",
+      "START": "Start",
+      "LOGIN": "Login"
     }
   }
 }

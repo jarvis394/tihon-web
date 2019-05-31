@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 import { withStyles } from '@material-ui/core/styles'
+import { Hidden } from '@material-ui/core'
 
 import NavBar from './NavBar'
 import BottomNav from './BottomNav'
-
-import { Home, Commands, Profile, Settings, NotFound } from '../pages'
-
-import { Hidden } from '@material-ui/core'
-
+import { Home, Commands, Profile, Settings, Verify, Logout, NotFound } from '../pages'
 import { DRAWER_WIDTH as drawerWidth } from '../config'
 
 const styles = theme => ({
@@ -37,23 +35,25 @@ class App extends Component {
   }
   
   render() {
-    const { classes } = this.props
+    const { classes, profile, history } = this.props
     
     return (
       <div className="App">
         
         { this.state.page !== 'notfound' && 
-            <Hidden smDown>
-              <NavBar page={ this.state.page } /> }
-            </Hidden>
+          <Hidden smDown>
+            <NavBar history={ history } page={ this.state.page } /> }
+          </Hidden>
         }
 
         <div className={ classes.content }>
           <Switch>
             <Route exact path="/" render={ () => <Home handlePage={ this.handlePage } /> } />
             <Route path="/commands" render={ () => <Commands handlePage={ this.handlePage } /> } />
-            <Route path="/settings" render={ () => <Settings handlePage={ this.handlePage } /> } />
-            <Route path="/profile" render={ () => <Profile handlePage={ this.handlePage } /> } />
+            <Route exact path="/settings" render={ () => <Settings handlePage={ this.handlePage } /> } />
+            <Route path="/profile" render={ () => <Profile profile={ profile } handlePage={ this.handlePage } /> } />
+            <Route path="/verify" render={ () => <Verify /> } />
+            <Route path="/logout" render={ () => <Logout /> } />
             
             <Route exact path="*" render={ () => <NotFound handlePage={ this.handlePage } /> } />
           </Switch>
@@ -70,4 +70,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App)
+export default withRouter(withStyles(styles)(App))

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// import { API_URL } from '../config'
+import { API_URL } from '../config'
 
 /**
  * Fetches commands list
@@ -10,7 +10,7 @@ import axios from 'axios'
  */
 export const fetchCommands = () => {
   return (dispatch) => {
-    axios.get('https://tihon.glitch.me/api/cmdList')
+    axios.get(API_URL + '/cmdList')
       .then(res => dispatch({
         type: 'FETCH_COMMANDS_FULFILLED', 
         payload: res.data.commands

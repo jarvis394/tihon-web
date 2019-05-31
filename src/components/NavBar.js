@@ -7,10 +7,12 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
+import Avatar from '@material-ui/core/Avatar'
 import ProfileIcon from '@material-ui/icons/PersonRounded'
 import LightbulbFull from '@material-ui/docs/svgIcons/LightbulbFull'
 import LightbulbOutline from '@material-ui/docs/svgIcons/LightbulbOutline'
 import LanguageIcon from '@material-ui/icons/Language'
+import Divider from '@material-ui/core/Divider'
 import { Menu, MenuItem } from '@material-ui/core'
 
 import { setPaletteType } from '../actions/themeActions'
@@ -41,7 +43,8 @@ class NavBar extends Component {
     super(props)
     
     this.state = {
-      languageMenu: null
+      languageMenu: null,
+      profileMenu: null
     }
   }
   
@@ -57,6 +60,18 @@ class NavBar extends Component {
     this.props.dispatch(changeLanguage(lang))
     this.handleLanguageMenuClose()
   }
+  
+  handleProfileIconClick(event) {
+    if (this.props.profile) {
+      this.setState({ profileMenu: event.currentTarget })
+    } else {
+      this.props.history.push('/profile')
+    }
+  }
+  
+  handleProfileMenuClose() {
+    this.setState({ profileMenu: null })
+  }
 
   changeTheme() {
     let t = this.props.theme.palette.type === 'light' ? 'dark' : 'light'
@@ -64,12 +79,12 @@ class NavBar extends Component {
   }
   
   render() {
-    const { classes, page, theme, lang: userLanguage } = this.props
-    const { languageMenu } = this.state
+    const { classes, page, theme, lang: userLanguage, profile } = this.props
+    const { languageMenu, profileMenu } = this.state
     
     return (
       <div className={ classes.root }>  
-        <DrawerComponent />
+        <DrawerComponent page={ page } />
         
         <AppBar className={ classes.appBar } position="fixed">
           <Toolbar>
@@ -113,13 +128,33 @@ class NavBar extends Component {
             </Menu>
             <IconButton
               edge="end" 
-              onClick={ this.handleLanguageIconClick.bind(this) } 
+              onClick={ this.handleProfileIconClick.bind(this) } 
               className={ classes.button } 
               color="inherit" 
               aria-label="Profile"
             >
               <ProfileIcon />
             </IconButton>
+            { profile && (
+              <Menu
+                id="profile-menu"
+                anchorEl={ profileMenu }
+                open={ Boolean(profileMenu) }
+                onClose={ this.handleProfileMenuClose.bind(this) }>
+                <MenuItem
+                  data-no-link="false"
+                  onClick={ () => this.props.history.push('/profile') }>
+                  <Avatar style={{ marginRight: 16, marginTop: 4, marginBottom: 4 }}>NS</Avatar>
+                  Name Surname
+                </MenuItem>
+                <Divider />
+                <MenuItem
+                  data-no-link="true"
+                  onClick={ () => this.props.history.push('/logout') }>
+                  Logout
+                </MenuItem>
+              </Menu>
+            )}
           </Toolbar>
         </AppBar>
       </div>
@@ -130,6 +165,7 @@ class NavBar extends Component {
 export default connect(store => {
   return {
     theme: store.theme,
-    lang: store.language
+    lang: store.language,
+    profile: store.profile
   }
 })(withStyles(styles)(NavBar))

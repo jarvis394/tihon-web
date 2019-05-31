@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Typography from '@material-ui/core/Typography'
+import { Typography, Container } from '@material-ui/core'
 
 class NotFound extends Component {
   componentWillMount() {
@@ -9,11 +9,11 @@ class NotFound extends Component {
   
   render() {
     return (
-      <div className="NotFound container">
+      <Container>
         
         <Typography variant="h3">Seems like you've got into a wrong page...</Typography>
         
-      </div>
+      </Container>
     )
   }
 }

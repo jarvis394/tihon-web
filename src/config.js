@@ -1,7 +1,7 @@
 import React from 'react'
 
 import HomeIcon from '@material-ui/icons/HomeRounded'
-import ListIcon from '@material-ui/icons/ListRounded'
+import CommandsIcon from '@material-ui/icons/ViewDayRounded'
 import ProfileIcon from '@material-ui/icons/PersonRounded'
 import SettingsIcon from '@material-ui/icons/SettingsRounded'
 
@@ -16,7 +16,7 @@ export const routes = [
   {
     name: 'commands',
     path: 'commands',
-    icon: <ListIcon />
+    icon: <CommandsIcon />
   },
   { 
     name: 'profile',

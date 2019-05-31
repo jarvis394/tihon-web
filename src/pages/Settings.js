@@ -5,6 +5,9 @@ import {
   connect
 } from 'react-redux'
 import {
+  withRouter
+} from 'react-router'
+import {
   t
 } from 'i18next'
 
@@ -16,6 +19,8 @@ import {
   ListItem,
   ListItemText,
   ListSubheader,
+  Menu,
+  MenuItem,
   Container,
   Divider,
   Switch,
@@ -41,9 +46,33 @@ const styles = theme => ({
     maxWidth: 500,
     margin: "auto"
   },
+  m1: {
+    marginTop: theme.spacing(1)
+  }
 })
 
 class Settings extends Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      languageMenu: null
+    }
+  }
+  
+  handleLanguageMenuOpen(event) {
+    this.setState({ languageMenu: event.currentTarget })
+  }
+
+  handleLanguageMenuClose() {
+    this.setState({ languageMenu: null })
+  }
+  
+  handleLanguageMenuClick(lang) {
+    this.props.dispatch(changeLanguage(lang))
+    this.handleLanguageMenuClose()
+  }
+  
   componentWillMount() {
     this.props.handlePage('settings')
   }
@@ -58,8 +87,9 @@ class Settings extends Component {
   }
   
   render() {
-    const { classes, theme, language } = this.props
+    const { classes, theme, profile, language: lang } = this.props
     const type = theme.palette.type
+    const { languageMenu } = this.state
     
     return (
       <Fade in={true}>
@@ -74,10 +104,9 @@ class Settings extends Component {
           
           <List 
             subheader={ <ListSubheader>{ t("labels:GENERAL") }</ListSubheader> } 
-            className={ classes.pos }>
+            className={ classes.m1 }>
             <ListItem 
               button 
-              disableRipple 
               onClick={ this.changeTheme.bind(this) }>
               <ListItemText 
                 secondary={ t("settings:Theme:" + type) } 
@@ -90,23 +119,57 @@ class Settings extends Component {
 
             <ListItem 
               button 
-              disableRipple 
-              onClick={ this.changeLanguage.bind(this) }>
+              onClick={ this.handleLanguageMenuOpen.bind(this) }>
               <ListItemText 
-                secondary={ languages.find(l => l.code === language).title } 
+                secondary={ languages.find(l => l.code === lang).title } 
                 primary={ t("settings:Language:title") } />
+              
             </ListItem>
             <Divider />
           </List>
+          
+          <List 
+            subheader={ <ListSubheader>{ t("labels:PROFILE") }</ListSubheader> } 
+            className={ classes.m1 }>
+            <ListItem 
+              button 
+              disabled={ !profile ? true : false}
+              onClick={ () => this.props.history.push('/logout') }>
+              <ListItemText 
+                secondary={ t('settings:Profile:subtitle') } 
+                primary={ t('settings:Profile:title') } />
+            </ListItem>
+            <Divider />
+          </List>
+          
+          <Menu
+            id="language-menu"
+            anchorEl={ languageMenu }
+            open={ Boolean(languageMenu) }
+            onClose={ this.handleLanguageMenuClose.bind(this) }
+          >
+          { languages.map(language => (
+            <MenuItem
+              data-no-link="true"
+              key={ language.code }
+              selected={ lang === language.code }
+              onClick={ this.handleLanguageMenuClick.bind(this, language.code) }
+            >
+              {language.title}
+            </MenuItem>
+            )) 
+          }
+          </Menu>
         </div>
       </Fade>
     )
   }
 }
 
-export default connect(store => {
+export default withRouter(connect(store => {
   return {
     theme: store.theme,
-    language: store.language
+    language: store.language,
+    profile: store.profile
   }
-})(withStyles(styles)(Settings))
+})(withStyles(styles)(Settings)))

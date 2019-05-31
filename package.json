@@ -19,7 +19,8 @@
     "redux-promise-middleware": "^6.1.0",
     "redux-thunk": "^2.3.0",
     "request-promise-native": "^1.0.7",
-    "i18next": "^15.1.2"
+    "i18next": "^15.1.2",
+    "react-window": "^1.8.2"
   },
   "devDependencies": {
     "react-scripts": "^2.1.8"

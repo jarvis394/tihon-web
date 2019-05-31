@@ -79,7 +79,7 @@ class Home extends Component {
           <Typography className={ classes.pos } color="textSecondary" align="center">{ t('home:Subtitle') }</Typography>
           
           <div className={ classes.pos + ' ' + classes.centered }>
-            <Button component="a" href="https://vk.com/tihon_bot" color="primary" variant="outlined">начать</Button>
+            <Button component="a" href="https://vk.com/tihon_bot" color="primary" variant="outlined">{ t('labels:START') }</Button>
           </div>
           
           <div className={ classes.content }>

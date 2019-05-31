@@ -30,13 +30,13 @@ class Layout extends Component {
   }
   
   render() {
-    let { theme } = this.props
+    let { theme, profile } = this.props
     
     return (
       <MuiThemeProvider theme={ createMuiTheme(theme) }>
         <CssBaseline />
         <BrowserRouter>
-          <App />
+          <App profile={ profile } />
         </BrowserRouter>
       </MuiThemeProvider>
     )
@@ -46,6 +46,7 @@ class Layout extends Component {
 export default connect(store => {
   return {
     theme: store.theme,
-    lang: store.language
+    lang: store.language,
+    profile: store.profile
   }
 })(Layout)

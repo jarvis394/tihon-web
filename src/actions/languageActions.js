@@ -3,6 +3,7 @@
  * Changes language
  * 
  * @function
+ * @param {string} lang - Language to change
  * @returns {object}
  */
 export const changeLanguage = lang => {

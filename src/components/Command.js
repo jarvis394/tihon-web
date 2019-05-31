@@ -17,7 +17,7 @@ const styles = theme => ({
 
 class Command extends Component {
   render() {
-    const { command, classes } = this.props
+    const { command, classes, lang } = this.props
     
     return (
       <Card elevation={ 2 } className={ "Commands " +  classes.card }>
@@ -36,7 +36,7 @@ class Command extends Component {
           </Typography> }
           
           <Typography variant="body1">
-            { command.description.ru }
+            { command.description[lang] }
           </Typography>
           
         </CardContent>

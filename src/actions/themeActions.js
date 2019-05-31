@@ -3,6 +3,7 @@
  * Sets theme's palette type
  * 
  * @function
+ * @param {string} type - Type to set
  * @returns {object}
  */
 export const setPaletteType = (type = 'light') => {
